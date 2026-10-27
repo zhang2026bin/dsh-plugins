@@ -11,23 +11,16 @@
 
 ## 安装
 
-插件包用 DSH CLI 装进 profile：
-
 ```powershell
-dsh plugin --profile desktop add "file:<本仓库路径>/dsh-azure-maid"
-dsh plugin --profile desktop add "file:<本仓库路径>/dsh-agent-ai-video"
-dsh plugin --profile desktop add "file:<本仓库路径>/dsh-agent-pilates"
+git clone https://github.com/zhang2026bin/dsh-plugins.git
+cd dsh-plugins
+.\install.ps1
 ```
 
-然后在 `~/.dsh/profiles/desktop/package.json` 的 `dsh.profile.bundles` 里追加：
+脚本会改写两个 Agent preset 里的绝对路径、安装三个插件包、并把它们写进 profile 的 `dsh.profile.bundles`。完成后重启应用。
 
-```json
-"dsh-azure-maid",
-"dsh-agent-ai-video",
-"dsh-agent-pilates"
-```
-
-重启应用生效。
+> 需要 `dsh` 命令在 PATH 中。如果只想要主题，可以单独装：
+> `dsh plugin --profile desktop add "file:.\dsh-azure-maid"`，再加 `"dsh-azure-maid"` 到 bundles。
 
 也可以直接用 Git URL（把 `<user>` 换成仓库所有者，`<commit>` 换成 40 位 commit）：
 
