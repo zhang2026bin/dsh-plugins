@@ -23,6 +23,7 @@ foreach ($pkg in $packages) {
         $text = Get-Content $patch -Raw -Encoding UTF8
         $text = [regex]::Replace($text, '[A-Za-z]:\\[^\r\n]*?\\agents\\pilates\\', ((Join-Path $repo 'agents\pilates').TrimEnd('\') + '\'))
         $text = [regex]::Replace($text, '[A-Za-z]:\\[^\r\n]*?\\agents\\ai-video\\', ((Join-Path $repo 'agents\ai-video').TrimEnd('\') + '\'))
+        $text = [regex]::Replace($text, '[A-Za-z]:\\[^\r\n]*?\\agents\\_shared\\', ((Join-Path $repo 'agents\_shared').TrimEnd('\') + '\'))
         [IO.File]::WriteAllText($patch, $text, $enc)
         Write-Host "[path] $($pkg.name) 路径已改写"
     }
