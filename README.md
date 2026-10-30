@@ -31,5 +31,6 @@ dsh plugin --profile desktop add "git+https://github.com/<user>/dsh-plugins.git#
 ## 说明
 
 - `dsh-azure-maid` 的 `lib/client.js` 已内联图片，体积约 300 KB，安装后无需额外资源。
+- 主题源码是 dsh-azure-maid/lib/client.v5.template.js；用构建脚本内联图片后生成 client.js（仓库存的是已构建产物，v1–v4 历史模板已删除）。
 - 两个 preset 会读取 `agents/` 下的绝对路径文件；如果你放在别处，需要同步改 `cordis.patch.yml` 里的路径。
 - `agents/*/knowledge` 里的部分内容（如普拉提专业基线）是通用基线，需专业教练复核后使用。
